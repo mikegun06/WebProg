@@ -20,3 +20,28 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+
+// ROUTE BLADE
+
+// Route::get('/', [
+//     Book::class,'index'
+// ])->name('home');
+// Route::get('/pub', [
+//     Publisher::class,'getAllPublisher'
+// ])->name('publisher');
+// Route::get('/book/category', [
+//     BookCategory::class,'getBookbyCategory'
+// ])->name('bookcat');
+// Route::get('/book/detail{id}', [
+//     BookDetail::class,'GetBookbyId'
+// ])->name('bookdetail');
+// Route::get('/publisher',[
+//     Publisher::class,'getAllPublisher'
+// ])->name('pub');
+// Route::get('/publisher/detail{id}', [
+//     Publisher::class, 'getPublisherbyId'
+// ])->name('pubdetail');
+// Route::get('/contact', [
+//     Contact::class, 'index'
+// ])->name('contact');
