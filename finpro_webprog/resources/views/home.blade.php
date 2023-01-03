@@ -1,85 +1,54 @@
 @php
 $a = 0;
 @endphp
-@extends('layouts.main')
-@section('css')
-<style>
-    form input {
-        height: 100%;
-    }
 
-</style>
-@endsection
+@extends('layouts.main')
 
 @section('content')
-<!-------------- Our Featured Products -------------->
-
-<div class="small-container categories">
-    <form action="" method="get" class="mb-5">
-        <div class="row">
-            <div class="col-lg-10">
-                <input type="text" name="search" class="form-control" value="{{ request()->get('search') }}"
-                    placeholder="Search">
+<body class="bg-dark">
+    {{-- search --}}
+    <div class="container">
+        <div class="row mt-4 p-0">
+            <div class="col-11 mr-2 p-0">
+                <input type="text" class="form-control" placeholder="Search">
             </div>
-            <div class="col-lg-2">
-                <button class="btn btn-outline-secondary btn-search rounded" type="submit">Search</button>
+            <div class="col-1 px-2">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    </div>
             </div>
         </div>
-    </form>
-
-    @if ($search != null)
-    <h2 class="title">
-        <blockquote class="blockquote">
-            <p class=" mb-0 display-5">Products</p>
-        </blockquote>
-    </h2>
-    <div class="row">
-        @foreach($products as $pro)
-        <div class="col-4">
-            <a href="{{ route('product.detail', ['id'=>$pro->id]) }}">
-                <img src="{{ asset('images/'.$pro->photo) }}">
-            </a>
-            <h4><a href="product-details.html">{{ $pro->name }}</a></h4>
-            <p>Rp. {{ number_format($pro->price) }}</p>
-        </div>
-        @endforeach
     </div>
-    @else
 
-    @foreach ($categories as $cat)
-    <h2 class="title">
-        <blockquote class="blockquote">
-            <p class=" mb-0 display-5">{{ $cat }}</p>
-            <footer class="blockquote-footer"><a href="{{ route('product.category', ["category" => $cat]) }}">View
-                    More</a></footer>
-        </blockquote>
-    </h2>
-    <div class="row">
-        @foreach($products as $pro)
-        @if ($pro->category == $cat)
-        <div class="col-4">
-            <a href="{{ route('product.detail', ['id'=>$pro->id]) }}">
-                <img src="{{ asset('images/'.$pro->photo) }}">
-            </a>
-            <h4><a href="product-details.html">{{ $pro->name }}</a></h4>
-            <p>Rp. {{ number_format($pro->price) }}</p>
+    {{-- Content --}}
+    <div class="container my-4">
+        @foreach ($categories as $cat)
+        <div class="row justify-content-center my-2">
+          <div class="card col-12 p-0">
+            <div class="card-header">
+                {{ $cat }} <a href="#">View All</a>
+            </div>
+            <div class="card-deck my-4 mx-auto">
+                @foreach($products->slice(0,3) as $pro)
+                <div class="card" onclick="location.href={{ route('product_detail', ['id'=>$pro->id]) }};">
+                    <a href="{{ route('product_detail', ['id'=>$pro->id]) }}">
+                        <img width="340px" style="object-fit: cover" src="{{ asset('images/'.$pro->photo) }}">
+                    </a>
+                <div class="card-body">
+                  <h5 class="card-title">{{ $pro->name }}</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p>Rp. {{ number_format($pro->price) }}</p>
+                    </div>
+                </div>
+                @endforeach
+          </div>
         </div>
-        @php
-        $a++;
-        if($a==4){
-        break;
-        $a = 0;
-        }
-        @endphp
-        @endif
-        @endforeach
-    </div>
-    @endforeach
+      </div>
+      @endforeach
 
-    @endif
-
-</div>
-
+</body>
 @endsection
 
 @if (Session::has('success-register'))

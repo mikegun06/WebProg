@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('css')
+{{-- @section('css')
 <style>
     #ProductImg {
         max-width: 400px;
@@ -15,33 +15,49 @@
     }
 
 </style>
-@endsection
+@endsection --}}
 
 @section('content')
-<!--------------single-product--------------->
-<div class="small-container single-product mb-5">
-    <div class="row">
-        <div class="col-2">
-            <img src="{{ asset('images/'.$data->photo) }}" id="ProductImg">
-        </div>
-        <div class="col-2">
-            <p>{{ $data->category }}</p>
-            <h1>{{ $data->name }}</h1>
-            <h4>Rp. {{ number_format($data->price) }}</h4>
-            @can('user')
-            <form action="{{ route('cart.store') }}" method="POST">
-                @csrf
-                <input type="hidden" name='id' value="{{ $data->id }}">
-                <input type="hidden" name='price' value="{{ $data->price }}">
-                <input type="number" name='qty' value="1" min="1">
-                <button type="submit" class="btn">Add To Cart</button>
-            </form>
-            @endcan
-
-            <h3>PRODUCT DETAILS</h3>
-            <br>
-            <p>{{ $data->detail }}</p>
-        </div>
+{{-- percobaan --}}
+<body class="bg-dark">
+    <div class="container">
+        <p class="btn mt-4"><a href="/">Back</a></p>
+        {{-- detail --}}
+        <div class="card col-12">
+            <div class="row justify-content-center col-12">
+              <div class="col-md-4">
+                <img width="300px" height="400px" style="object-fit:cover" src="{{ asset('images/'.$data->photo) }}" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h3 class="card-title mt-4">{{ $data->name }}</h3>
+                  <div class="row">
+                    <div class="col-sm-3">Detail</div>
+                    <div class="col-sm-9">
+                      <p>{{ $data->detail }}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">Price</div>
+                    <div class="col-sm-9">
+                      <h4>Rp. {{ number_format($data->price) }}</h4>
+                    </div>
+                  </div>
+                  @can('user')
+                    <form action="{{ route('cart_store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name='id' value="{{ $data->id }}">
+                        <input type="hidden" name='price' value="{{ $data->price }}">
+                        <input type="number" name='qty' value="1" min="1">
+                        <p class="card-text"><small class="text-muted">Please re-check your items!</small></p>
+                        <button type="submit" class="btn">Add To Cart</button>
+                    </form>
+                    @endcan
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
-</div>
+</body>
+
 @endsection

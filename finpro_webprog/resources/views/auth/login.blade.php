@@ -10,23 +10,24 @@
 @endsection
 
 @section('content')
-<div class="container small-container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card my-4">
-                <div class="card-header">{{ __('Login') }}</div>
+<body class="bg-dark my-auto">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    {{-- login form --}}
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="card col-5 p-0">
+                <div class="card-container p-0">
+                    <div class="card-header text-center">{{ __('Login') }}</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
 
-                        <div class="row mb-3">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            {{-- email baru --}}
+                            <div class="form-group mt-2">
+                                <label for="email">{{ __('Email Address') }}</label>
+                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror"
+                                name="email" placeholder="Enter your email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -34,16 +35,12 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="current-password">
+                            {{-- password --}}
+                            <div class="form-group mt-3">
+                                <label for="password">{{ __('Password') }}</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" placeholder="Enter your password" required autocomplete="current-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -51,33 +48,29 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-4 offset-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                        {{ old('remember') ? 'checked' : '' }}>
+                            <div class="form-group mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                                        <label class="form-check-label" for="remember">
+                                            {{ __('Remember Me') }}
+                                        </label>
+                                    </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-5">
+                            <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                        <p class="mt-3">Already have an account? <a href="register">Register Here</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 @endsection
