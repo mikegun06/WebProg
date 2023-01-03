@@ -27,22 +27,22 @@ Auth::routes();
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/product/category/{category}', [HomeController::class, 'category'])->name('product_category');
+Route::get('/product/category/{category}', [HomeController::class, 'category'])->name('product.category');
 
 //Product
 Route::get('/product', [ProductController::class, 'index'])->name('product');
-Route::get('/product/detail/{id}', [HomeController::class, 'show'])->name('product_detail');
-Route::get('/product/add', [ProductController::class, 'create'])->name('product_add');
-Route::post('/product/store', [ProductController::class, 'store'])->name('product_store');
-Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product_edit');
-Route::post('/product/update', [ProductController::class, 'update'])->name('product_update');
-Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product_destroy');
+Route::get('/product/detail/{id}', [HomeController::class, 'show'])->name('product.detail');
+Route::get('/product/add', [ProductController::class, 'create'])->name('product.add');
+Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/product/update', [ProductController::class, 'update'])->name('product.update');
+Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 //Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::post('/cart/store', [cartController::class, 'store'])->name('cart_store');
-Route::get('/cart/purchase', [cartController::class, 'purchase'])->name('cart_purchase');
-Route::get('/cart/destroy/{id}', [cartController::class, 'destroy'])->name('cart_destroy');
+Route::post('/cart/store', [cartController::class, 'store'])->name('cart.store');
+Route::get('/cart/purchase', [cartController::class, 'purchase'])->name('cart.purchase');
+Route::get('/cart/destroy/{id}', [cartController::class, 'destroy'])->name('cart.destroy');
 
 //Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');

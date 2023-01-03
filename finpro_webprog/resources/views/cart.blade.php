@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-lg-2">
                     @if($total>0)
-                    <a href="{{ route('cart_purchase') }}" class="btn btn-outline-secondary btn-search rounded"
+                    <a href="{{ route('cart.purchase') }}" class="btn btn-outline-secondary btn-search rounded"
                         id="search-btn">Purchase</a>
                     @endif
                 </div>
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="btn-group" role="group" style="float: right">
-                                            <a href="{{ route('cart_destroy', ['id' => $dt->id]) }}"
+                                            <a href="{{ route('cart.destroy', ['id' => $dt->id]) }}"
                                                 class="btn btn-secondary icon-a">
                                                 <i class="bi bi-trash"></i>
                                             </a>

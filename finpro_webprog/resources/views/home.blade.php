@@ -36,7 +36,7 @@ $a = 0;
     <div class="row">
         @foreach($products as $pro)
         <div class="col-4">
-            <a href="{{ route('product_detail', ['id'=>$pro->id]) }}">
+            <a href="{{ route('product.detail', ['id'=>$pro->id]) }}">
                 <img src="{{ asset('images/'.$pro->photo) }}">
             </a>
             <h4><a href="product-details.html">{{ $pro->name }}</a></h4>
@@ -50,7 +50,7 @@ $a = 0;
     <h2 class="title">
         <blockquote class="blockquote">
             <p class=" mb-0 display-5">{{ $cat }}</p>
-            <footer class="blockquote-footer"><a href="{{ route('product_category', ["category" => $cat]) }}">View
+            <footer class="blockquote-footer"><a href="{{ route('product.category', ["category" => $cat]) }}">View
                     More</a></footer>
         </blockquote>
     </h2>
@@ -58,7 +58,7 @@ $a = 0;
         @foreach($products as $pro)
         @if ($pro->category == $cat)
         <div class="col-4">
-            <a href="{{ route('product_detail', ['id'=>$pro->id]) }}">
+            <a href="{{ route('product.detail', ['id'=>$pro->id]) }}">
                 <img src="{{ asset('images/'.$pro->photo) }}">
             </a>
             <h4><a href="product-details.html">{{ $pro->name }}</a></h4>

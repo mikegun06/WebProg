@@ -51,6 +51,6 @@ class HomeController extends Controller
             'products' => $product
             ];
 
-            return view('product.productByCategories', $data);
+            return view('product.productCategories', $data);
         }
 }

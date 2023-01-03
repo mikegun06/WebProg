@@ -29,7 +29,7 @@
             <h1>{{ $data->name }}</h1>
             <h4>Rp. {{ number_format($data->price) }}</h4>
             @can('user')
-            <form action="{{ route('cart_store') }}" method="POST">
+            <form action="{{ route('cart.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name='id' value="{{ $data->id }}">
                 <input type="hidden" name='price' value="{{ $data->price }}">

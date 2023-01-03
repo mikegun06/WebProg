@@ -63,10 +63,7 @@ class ProductController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()
-            ->route('product_add')
-            ->withErrors($validator)
-            ->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
         $validated = $validator->validated();
 
@@ -116,10 +113,7 @@ class ProductController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()
-            ->route('product_edit', ['id'=>$request->id])
-            ->withErrors($validator)
-            ->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
         $validated = $validator->validated();
         File::delete('images/'.$product->photo);

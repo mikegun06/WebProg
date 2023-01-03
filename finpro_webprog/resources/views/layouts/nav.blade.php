@@ -14,7 +14,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @for($a=0;$a<count($Ncategory);$a++) <a class="dropdown-item"
-                                    href="{{ route('product_category', ['category' =>$Ncategory[$a] ]) }}">
+                                    href="{{ route('product.category', ['category' =>$Ncategory[$a] ]) }}">
                                     {{ $Ncategory[$a] }}</a>
                                     @endfor
                             </div>
