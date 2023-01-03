@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('is_admin');
+        $this->middleware('isAdmin');
     }
 
     public function index(Request $request)

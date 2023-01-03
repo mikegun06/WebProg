@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'alpha_num', 'min:8', 'confirmed'],
             'gender' => ['required'],
-            'dob' => ['required', 'date', 'before:today', 'after:01-01-1900'],
+            'dob' => ['required', 'date', 'after:01-01-1950', 'before:today'],
             'country' => ['required'],
         ]);
     }
@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'dob' => $data['dob'],
             'country' => $data['country'],
-            'is_admin' => false,
+            'isAdmin' => false,
         ]);
     }
 }
