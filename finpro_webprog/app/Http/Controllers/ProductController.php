@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $category = collect(['Food', 'Electronics', 'Beauty', 'Pet']);
+        $category = collect(['House', 'Food', 'Camera', 'Kitchen']);
         return view('product.add', ['category' => $category]);
     }
 
@@ -91,7 +91,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $data = Product::find($id);
-        $category = collect(['Food', 'Electronics', 'Beauty', 'Pet']);
+        $category = collect(['House', 'Food', 'Camera', 'Kitchen']);
 
         return view('product.edit', ['data' => $data, 'category' => $category]);
     }

@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {   
-        $category = collect(['Food', 'Electronics', 'Beauty', 'Pet']);
+        $category = collect(['House', 'Food', 'Camera', 'Kitchen']);
         $product = Product::search($request->search)->get();
 
         $data = [
