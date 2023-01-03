@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'Brazil'];
+        $country = ['Indonesia', 'Malaysia', 'Singapore', 'Thailand', 'Laos', 'Vietnam'];
         $gender = ['Male', 'Female'];
             DB::table('users')->insert(
             [
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'gender' => "Male",
                 'dob' => date('Y-m-d'),
                 'country' => $country[rand(0,5)],
-                'is_admin' => true
+                'isAdmin' => true
             ]);
             DB::table('users')->insert(
             [
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                 'gender' => "Female",
                 'dob' => date('Y-m-d'),
                 'country' => $country[rand(0,5)],
-                'is_admin' => true
+                'isAdmin' => true
             ]);
 
         for($a=1;$a<=3;$a++){ 
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
                 'gender' => $gender[rand(0,1)],
                 'dob' => date('Y-m-d'),
                 'country' => $country[rand(0,5)],
-                'is_admin' => false
+                'isAdmin' => false
             ]);
         }
     }

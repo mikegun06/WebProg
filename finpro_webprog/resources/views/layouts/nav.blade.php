@@ -1,5 +1,5 @@
             @php
-            $Ncategory = ['House', 'Camera', 'Sport', 'Kitchen'];
+            $Ncategory = ['House', 'Food', 'Camera', 'Kitchen'];
             @endphp
             <div class="navbar">
                 <div class="logo">

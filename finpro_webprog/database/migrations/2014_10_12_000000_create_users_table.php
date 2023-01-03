@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->enum('gender', ['Male', 'Female']);
             $table->date('dob');
-            $table->enum('country', ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'Brazil']);
-            $table->boolean('is_admin');
+            $table->enum('country', ['Indonesia', 'Malaysia', 'Singapore', 'Thailand', 'Laos', 'Vietnam']);
+            $table->boolean('isAdmin');
             $table->rememberToken();
             $table->timestamps();
         });

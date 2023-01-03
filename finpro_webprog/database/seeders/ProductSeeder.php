@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $category = ['Food', 'Electronics', 'Beauty', 'Pet'];
+        $category = ['House', 'Food', 'Camera', 'Kitchen'];
         for($a=1;$a<=12;$a++){ 
             DB::table('products')->insert([
                 'name' => "Product $a",
