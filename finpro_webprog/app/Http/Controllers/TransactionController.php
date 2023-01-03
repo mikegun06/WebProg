@@ -26,7 +26,7 @@ class TransactionController extends Controller
 
         // dd($transaction);1
 
-        return view('transaction.index', $data);
+        return view('transaction', $data);
     }
 
 }

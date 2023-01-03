@@ -23,7 +23,7 @@ class CartController extends Controller
         $data = Cart::with('product')->where('user_id', $id)->get();
         $total = Cart::where('user_id', $id)->sum('sub_total');
 
-        return view('cart.index', ["data" => $data, "total" => $total]);
+        return view('cart', ["data" => $data, "total" => $total]);
     }
 
     public function store(Request $request)
