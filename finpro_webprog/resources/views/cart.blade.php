@@ -1,41 +1,6 @@
 @extends('layouts.main')
-@section('css')
-<style>
-    form input {
-        height: 100%;
-    }
-
-    #search-btn {
-        width: auto;
-    }
-
-    #add {
-        float: right;
-        width: auto;
-    }
-
-    .card-btn {
-        float: right;
-        width: auto !important;
-    }
-
-    .icon-a {
-        font-size: 150%
-    }
-
-    .col-4:hover {
-        transform: none;
-    }
-
-    .row {
-        justify-content: space-around;
-    }
-
-</style>
-@endsection
 
 @section('content')
-<!-------------- Our Featured Products -------------->
 
 <div class="small-container categories">
     <h2 class="title">
@@ -54,7 +19,7 @@
                 </div>
                 <div class="col-lg-2">
                     @if($total>0)
-                    <a href="{{ route('cart.purchase') }}" class="btn btn-outline-secondary btn-search rounded"
+                    <a href="{{ route('cart_purchase') }}" class="btn btn-outline-secondary btn-search rounded"
                         id="search-btn">Purchase</a>
                     @endif
                 </div>
@@ -87,7 +52,7 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="btn-group" role="group" style="float: right">
-                                            <a href="{{ route('cart.destroy', ['id' => $dt->id]) }}"
+                                            <a href="{{ route('cart_destroy', ['id' => $dt->id]) }}"
                                                 class="btn btn-secondary icon-a">
                                                 <i class="bi bi-trash"></i>
                                             </a>

@@ -3,31 +3,25 @@ $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'B
 @endphp
 
 @extends('layouts.main')
-@section('css')
-<style>
-    .row {
-        justify-content: space-around;
-    }
 
-</style>
-@endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 mb-5">
-            <div class="card my-4">
-                <div class="card-header">{{ __('Register') }}</div>
+<body class="bg-dark my-auto">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    {{-- login form --}}
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="card col-5 p-0">
+                <div class="card-container p-0">
+                    <div class="card-header text-center">{{ __('Register') }}</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ old('name') }}">
+                            {{-- name --}}
+                            <div class="form-group mt-1">
+                                <label for="name">{{ __('Name') }}</label>
+                                <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <small id="nameHelp" class="form-text text-muted">Please user your real name, thanks!.</small>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -35,15 +29,13 @@ $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'B
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
+                            {{-- email --}}
+                            <div class="form-group mt-3">
+                                <label for="email">{{ __('Email Address') }}</label>
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}">
+                                name="email" placeholder="Enter your email" value="{{ old('email') }}">
+                                <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -51,15 +43,12 @@ $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'B
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password">
+                            {{-- password --}}
+                            <div class="form-group mt-3">
+                                <label for="password">{{ __('Password') }}</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" placeholder="Enter your password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -67,66 +56,57 @@ $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'B
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
+                            {{-- confirm password --}}
+                            <div class="form-group mt-3">
+                                <label for="password-confirm">{{ __('Confirm Password') }}</label>
                                 <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation">
+                                name="password-confirmation" placeholder="Re-enter your password">
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="Gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
-
-                            <div class="col-md-6">
-                                <div class="form-check">
-                                    <input class="form-check-input @error('gender') is-invalid @enderror" type="radio"
-                                        name="gender" id="gender" value="Male"
-                                        {{ old('gender')=='Male' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="gender">
-                                        Male
-                                    </label>
+                            {{-- Gender --}}
+                            <div class="form-group mt-3">
+                                <label for="Gender" class="col-form-label text-md-end">{{ __('Gender') }}</label>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio"
+                                            name="gender" id="gender" value="Male"
+                                            {{ old('gender')=='Male' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gender">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio"
+                                            name="gender" id="gender2" value="Female"
+                                            {{ old('gender')=='Female' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="gender2">
+                                            Female
+                                        </label>
+                                    </div>
+                                    @error('gender')
+                                    {{-- error messages --}}
+                                    <span class="invalid-feedback" style="display: block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input @error('gender') is-invalid @enderror" type="radio"
-                                        name="gender" id="gender2" value="Female"
-                                        {{ old('gender')=='Female' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="gender2">
-                                        Female
-                                    </label>
-                                </div>
-                                @error('gender')
-                                <span class="invalid-feedback" style="display: block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="dob"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror"
-                                    name="dob" value="{{ old('dob') }}">
-
+                            {{-- Date of birth --}}
+                            <div class="form-group mt-3">
+                                <label for="exampleInputDOB1">Date of Birth</label>
+                                <input type="date" id="dob" class="form-control @error('dob') is-invalid @enderror" placeholder="Date of Birth" value="{{ old('dob') }}">
                                 @error('dob')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="country" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
-
-                            <div class="col-md-6">
+                            {{-- Country --}}
+                            <div class="form-group mt-3">
+                                <label for="exampleInputCountry1">Country</label>
                                 <select class="form-control @error('country') is-invalid @enderror" name="country"
                                     id="country">
                                     <option value="">Choose Country</option>
@@ -140,19 +120,15 @@ $country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'B
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-5">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                            {{-- Register Button --}}
+                        <button type="submit" class="btn btn-primary justify-content-center mt-3">{{ __('Register')}}</button>
+                        </form>
+                        <p class="mt-3">Have an account? <a href="login">Login Here</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 @endsection

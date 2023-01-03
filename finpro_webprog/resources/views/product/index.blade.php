@@ -60,7 +60,7 @@
                 </div>
         </form>
         <div class="col-lg-3 offset-lg-4">
-            <a class="btn btn-outline-secondary rounded" id='add' href="{{ route('product.add') }}">
+            <a class="btn btn-outline-secondary rounded" id='add' href="{{ route('product_add') }}">
                 Add Product +</i></a>
         </div>
     </div>
@@ -87,11 +87,11 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="btn-group" role="group" style="float: right">
-                                        <a href="{{ route('product.destroy', ['id' => $pro->id]) }}"
+                                        <a href="{{ route('product_destroy', ['id' => $pro->id]) }}"
                                             class="btn btn-secondary icon-a">
                                             <i class="bi bi-trash"></i>
                                         </a>
-                                        <a href="{{ route('product.edit', ['id' => $pro->id]) }}"
+                                        <a href="{{ route('product_edit', ['id' => $pro->id]) }}"
                                             class="btn btn-secondary icon-a">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
@@ -116,7 +116,7 @@
 <script>
     Swal.fire({
         title: 'Success',
-        text: "Successfully added a new product",
+        text: "successfully added a new product",
         icon: 'success',
         confirmButtonText: 'Ok'
     })

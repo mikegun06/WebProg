@@ -1,0 +1,1 @@
+<?php /**PATH F:\BINUS\Kuliah\Semester 5\Lab - Web Programming\WebProg\webprog-lab\resources\views/template/footer.blade.php ENDPATH**/ ?>

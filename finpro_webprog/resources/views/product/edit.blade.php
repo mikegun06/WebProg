@@ -16,7 +16,7 @@
                 <div class="card-header">{{ __('Update Product') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('product.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('product_update') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ $data->id }}">
                         <div class="row mb-3">
