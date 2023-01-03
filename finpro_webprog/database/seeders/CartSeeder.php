@@ -15,12 +15,12 @@ class CartSeeder extends Seeder
      */
     public function run()
     {
-        for($a=1;$a<=10;$a++){ 
+        for($a=1;$a<=8;$a++){ 
             DB::table('carts')->insert([
-                'product_id' => rand(1,12),
-                'user_id' => rand(3,5),
-                'qty' => 2,
-                'sub_total' => 20000,
+                'product_id' => rand(1,15),
+                'user_id' => rand(3,7),
+                'qty' => 3,
+                'sub_total' => 30000,
             ]);
             }
     }

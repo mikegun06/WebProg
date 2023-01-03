@@ -18,13 +18,10 @@ class TransactionController extends Controller
         $id = Auth::id();
         $transaction = Transaction::with('detail.product')->where('user_id', $id)->get();
         $quantity =0;
-
         $data = [
             'transaction' => $transaction,
             'quantity' => $quantity,
         ];
-
-        // dd($transaction);1
 
         return view('transaction', $data);
     }

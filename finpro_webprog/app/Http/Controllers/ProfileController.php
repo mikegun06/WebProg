@@ -16,9 +16,7 @@ class ProfileController extends Controller
     public function index()
     {
         $id = Auth::id();
-
         $user = User::find($id);
-
         $data = [
             'user' => $user
         ];

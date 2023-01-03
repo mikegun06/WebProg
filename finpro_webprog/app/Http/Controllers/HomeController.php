@@ -7,21 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index(Request $request)
     {   
         $category = collect(['House', 'Food', 'Camera', 'Kitchen']);
@@ -43,14 +28,13 @@ class HomeController extends Controller
         return view('product.detail', ['data' => $data]);
     }
 
-        public function category($category)
-        {
-            $product = Product::where('category', $category)->paginate(10);
-
-            $data = [
-            'products' => $product
-            ];
-
-            return view('product.productCategories', $data);
-        }
+    public function category($category)
+    {
+        $product = Product::where('category', $category)->paginate(10);
+        $data = [
+        'products' => $product
+        ];
+        
+        return view('product.productCategories', $data);
+    }
 }

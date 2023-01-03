@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
@@ -18,17 +13,12 @@ return new class extends Migration
             $table->string('name');
             $table->enum('category', ['House', 'Food', 'Camera', 'Kitchen']);
             $table->text('detail');
-            $table->bigInteger('price');
+            $table->integer('price');
             $table->text('photo');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('products');

@@ -19,7 +19,6 @@ class CartController extends Controller
     public function index()
     {
         $id = Auth::id();
-
         $data = Cart::with('product')->where('user_id', $id)->get();
         $total = Cart::where('user_id', $id)->sum('sub_total');
 
@@ -29,7 +28,6 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $id = Auth::id();
-        
         $data = [
             'product_id' => $request->id,
             'user_id' => $id,
@@ -47,7 +45,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::destroy($id);
-
         Session::flash('success-delete');
 
         return redirect()->route('cart');
@@ -69,21 +66,19 @@ class CartController extends Controller
         
         $transaction_detail_data = Cart::where('user_id', $id)->get();
 
-        foreach($transaction_detail_data as $dt){
+        foreach($transaction_detail_data as $data){
             $detail_arr=[ 
                 'transaction_id'=> $transaction->id,
-                'product_id' => $dt->product_id,
-                'qty' => $dt->qty,
-                'sub_total' => $dt->sub_total
+                'product_id' => $data->product_id,
+                'qty' => $data->qty,
+                'sub_total' => $data->sub_total
             ];
 
             array_push($transaction_detail, $detail_arr);
         }
 
         TransactionDetail::insert($transaction_detail);
-
         Cart::where('user_id', $id)->delete();
-
         Session::flash('success-purchase');
 
         return redirect()->route('transaction');

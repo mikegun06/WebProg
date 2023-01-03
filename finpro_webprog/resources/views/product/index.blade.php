@@ -116,7 +116,7 @@
 <script>
     Swal.fire({
         title: 'Success',
-        text: "successfully added a new product",
+        text: "Successfully added a new product",
         icon: 'success',
         confirmButtonText: 'Ok'
     })

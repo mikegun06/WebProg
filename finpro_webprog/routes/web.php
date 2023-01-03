@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -40,9 +37,9 @@ Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name
 
 //Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::post('/cart/store', [cartController::class, 'store'])->name('cart.store');
-Route::get('/cart/purchase', [cartController::class, 'purchase'])->name('cart.purchase');
-Route::get('/cart/destroy/{id}', [cartController::class, 'destroy'])->name('cart.destroy');
+Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart/purchase', [CartController::class, 'purchase'])->name('cart.purchase');
+Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 //Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');

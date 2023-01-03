@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
                 'isAdmin' => true
             ]);
 
-        for($a=1;$a<=3;$a++){ 
+        for($a=1;$a<=5;$a++){ 
             DB::table('users')->insert([
                 'name' => "User$a",
                 'email' => "user$a@gmail.com",

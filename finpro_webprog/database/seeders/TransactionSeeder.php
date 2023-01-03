@@ -15,9 +15,9 @@ class TransactionSeeder extends Seeder
      */
     public function run()
     {
-        for($a=1;$a<=10;$a++){ 
+        for($a=1;$a<=8;$a++){ 
             DB::table('transactions')->insert([
-                'user_id' => rand(3,5),
+                'user_id' => rand(3,7),
                 'total' => 200000,
                 'created_at' => date("Y-m-d H:i:s")
             ]);

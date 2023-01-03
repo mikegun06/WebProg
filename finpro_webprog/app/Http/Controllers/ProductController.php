@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function __construct()
     {
         $this->middleware('isAdmin');
@@ -26,7 +20,6 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $product = Product::Search($request->search)->paginate(5);
-
         $data = [
         'products' => $product
         ];
@@ -35,23 +28,12 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $category = collect(['House', 'Food', 'Camera', 'Kitchen']);
         return view('product.add', ['category' => $category]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -79,12 +61,6 @@ class ProductController extends Controller
 
     } 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $data = Product::find($id);
@@ -93,13 +69,6 @@ class ProductController extends Controller
         return view('product.edit', ['data' => $data, 'category' => $category]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         $product = Product::find($request->id);
@@ -128,12 +97,6 @@ class ProductController extends Controller
         return redirect()->route('product');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $product = Product::find($id);
