@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('login-new', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\BINUS\Kuliah\Semester 5\Lab - Web Programming\WebProg\webprog-lab\resources\views/login-new.blade.php ENDPATH**/ ?>
