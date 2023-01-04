@@ -26,7 +26,7 @@
                             <div class="form-group mt-2">
                                 <label for="email">{{ __('Email Address') }}</label>
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror"
-                                name="email" placeholder="Enter your email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                name="email" placeholder="Enter your email" value="{{ old('email') }}" autocomplete="email" required autofocus>
                                 <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
                                 @error('email')
@@ -40,7 +40,7 @@
                             <div class="form-group mt-3">
                                 <label for="password">{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                name="password" placeholder="Enter your password" required autocomplete="current-password">
+                                name="password" placeholder="Enter your password" autocomplete="current-password" required>
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">

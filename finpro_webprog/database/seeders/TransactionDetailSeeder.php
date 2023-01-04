@@ -15,10 +15,10 @@ class TransactionDetailSeeder extends Seeder
      */
     public function run()
     {
-        for($a=1;$a<=16;$a++){ 
+        for($a=1;$a<=9;$a++){ 
             DB::table('transaction_details')->insert([
-                'transaction_id' => rand(1,10),
-                'product_id' => rand(1,12),
+                'transaction_id' => rand(1,9),
+                'product_id' => rand(1,16),
                 'qty' => 2,
                 'sub_total' => 20000,
             ]);

@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
                 'category' => $category[rand(0, 3)],
                 'Detail' => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quidem accusamus, sapiente autem ad doloremque recusandae sequi magnam exercitationem praesentium.",
                 'price' => 10000,
-                'photo' => "product-$a.jpg"
+                'photo' => "product-$a.jpeg"
             ]);
         }
     }

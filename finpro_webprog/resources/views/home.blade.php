@@ -28,17 +28,17 @@ $a = 0;
         <div class="row justify-content-center my-2">
           <div class="card col-12 p-0">
             <div class="card-header">
-                {{ $cat }} <a href="#">View All</a>
+                {{ $cat }} <a href=""{{ route('product.category', ["category" => $cat]) }}"">View All</a>
             </div>
             <div class="card-deck my-4 mx-auto">
                 @foreach($products->slice(0,3) as $pro)
-                <div class="card" onclick="location.href={{ route('product_detail', ['id'=>$pro->id]) }};">
-                    <a href="{{ route('product_detail', ['id'=>$pro->id]) }}">
+                <div class="card" onclick="location.href={{ route('product.detail', ['id'=>$pro->id]) }};">
+                    <a href="{{ route('product.detail', ['id'=>$pro->id]) }}">
                         <img width="340px" style="object-fit: cover" src="{{ asset('images/'.$pro->photo) }}">
                     </a>
                 <div class="card-body">
                   <h5 class="card-title">{{ $pro->name }}</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ad aspernatur eveniet cum non ullam dolores autem fuga repellendus saepe.</p>
                   <p>Rp. {{ number_format($pro->price) }}</p>
                     </div>
                 </div>

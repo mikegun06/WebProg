@@ -44,7 +44,7 @@
                     </div>
                   </div>
                   @can('user')
-                    <form action="{{ route('cart_store') }}" method="POST">
+                    <form action="{{ route('cart.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name='id' value="{{ $data->id }}">
                         <input type="hidden" name='price' value="{{ $data->price }}">

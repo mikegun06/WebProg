@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'dob' => $data['dob'],
             'country' => $data['country'],
-            'isAdmin' => false,
+            'is_admin' => false,
         ]);
     }
 }

@@ -1,5 +1,5 @@
 @php
-$country = ['Indonesia', 'United States', 'Argentina', 'Costa Rica', 'Japan', 'Brazil'];
+$country = ['Indonesia', 'Malaysia', 'Singapore', 'Filipina', 'Laos', 'Vietnam'];
 @endphp
 
 @extends('layouts.main')

@@ -15,7 +15,7 @@ class CartSeeder extends Seeder
      */
     public function run()
     {
-        for($a=1;$a<=8;$a++){ 
+        for($a=1;$a<=3;$a++){ 
             DB::table('carts')->insert([
                 'product_id' => rand(1,15),
                 'user_id' => rand(3,7),

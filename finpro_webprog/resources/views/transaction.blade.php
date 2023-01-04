@@ -49,7 +49,7 @@
 <div class="small-container categories">
     <h2 class="title">
         <blockquote class="blockquote">
-            <p class=" mb-0 display-5">Yor Transaction</p>
+            <p class=" mb-0 display-5">Your Transaction</p>
         </blockquote>
     </h2>
     <div class="row mb-5">
